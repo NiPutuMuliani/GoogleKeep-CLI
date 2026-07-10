@@ -37,7 +37,7 @@ public class Note {
         return content;
     }
 
-    publid void setContent(String content){
+    public void setContent(String content){
         this.content= content;
     }
 }

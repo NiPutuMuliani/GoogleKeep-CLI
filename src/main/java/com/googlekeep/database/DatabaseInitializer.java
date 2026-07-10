@@ -10,17 +10,17 @@ public class DatabaseInitializer {
             CREATE TABLE IF NOT EXISTS notes (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 title TEXT NOT NULL,
-                content TEXT NOT NULL
+                content TEXT NOT NULL,
                 created_at TEXT,
                 updated_at TETXT
-                )
+                );
                 """;
         try (
-            Connection conn = DatabaseConnection.getConncetion();
+            Connection conn = DatabaseConnection.getConnection();
             Statement stmt = conn.createStatement()
         ) {
             stmt.execute(sql);
-            System.out.println("Table notes created successfully.")
+            System.out.println("Table notes created successfully.");
         } catch (Exception e) {
             e.printStackTrace();
         }
