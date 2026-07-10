@@ -8,4 +8,36 @@ public class Note {
     private boolean archived;
     private String creatAt;
     private String updateAt;
+
+    public Note(){
+    }
+
+    public Note(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public String getTitle(){
+        return title;
+    }
+
+    public String setTitle(String title){
+        this.title = title;
+    }
+
+    public String getContent(){
+        return content;
+    }
+
+    publid void setContent(String content){
+        this.content= content;
+    }
 }

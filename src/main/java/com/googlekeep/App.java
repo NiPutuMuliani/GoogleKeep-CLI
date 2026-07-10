@@ -3,13 +3,16 @@ package com.googlekeep;
 /**
  * Hello world!
  */
-import java.sql.Connection;
+git import java.sql.Connection;
 
 import com.googlekeep.database.DatabaseConnection;
 
 public class App {
     public static void main(String[] args) {
+
         Connection conn = DatabaseConnection.getConnection();
+        DatabaseInitializer.initializeDatabase();
+
 
         if (conn != null){
             System.out.println("Database connected");
