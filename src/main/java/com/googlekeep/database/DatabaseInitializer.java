@@ -20,7 +20,7 @@ public class DatabaseInitializer {
             Statement stmt = conn.createStatement()
         ) {
             stmt.execute(sql);
-            System.out.println("Table notes created successfully.");
+            System.out.println("Table notes is ready.");
         } catch (Exception e) {
             e.printStackTrace();
         }

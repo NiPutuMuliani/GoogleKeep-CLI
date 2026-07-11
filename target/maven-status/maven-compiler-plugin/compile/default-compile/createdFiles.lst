@@ -1,6 +1,9 @@
-com\googlekeep\model\Checklist.class
 com\googlekeep\model\Note.class
+com\googlekeep\repository\NoteRepository.class
 com\googlekeep\database\DatabaseConnection.class
+com\googlekeep\database\DatabaseInitializer.class
+com\googlekeep\model\Checklist.class
+com\googlekeep\service\NoteService.class
 com\googlekeep\model\Label.class
 com\googlekeep\model\Reminder.class
 com\googlekeep\App.class

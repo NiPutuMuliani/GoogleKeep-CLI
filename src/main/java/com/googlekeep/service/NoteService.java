@@ -16,5 +16,9 @@ public class NoteService {
     public List<Note> getAllNotes(){
         return repository.findAll();
     }
+
+    public List<Note> searchNotes(String keyword){
+        return repository.searchByTitle(keyword);
+    }
 }
 

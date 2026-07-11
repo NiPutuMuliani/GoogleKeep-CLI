@@ -1,6 +1,9 @@
 C:\JAVA\google-keep-cli\src\main\java\com\googlekeep\App.java
 C:\JAVA\google-keep-cli\src\main\java\com\googlekeep\database\DatabaseConnection.java
+C:\JAVA\google-keep-cli\src\main\java\com\googlekeep\database\DatabaseInitializer.java
 C:\JAVA\google-keep-cli\src\main\java\com\googlekeep\model\Checklist.java
 C:\JAVA\google-keep-cli\src\main\java\com\googlekeep\model\Label.java
 C:\JAVA\google-keep-cli\src\main\java\com\googlekeep\model\Note.java
 C:\JAVA\google-keep-cli\src\main\java\com\googlekeep\model\Reminder.java
+C:\JAVA\google-keep-cli\src\main\java\com\googlekeep\repository\NoteRepository.java
+C:\JAVA\google-keep-cli\src\main\java\com\googlekeep\service\NoteService.java

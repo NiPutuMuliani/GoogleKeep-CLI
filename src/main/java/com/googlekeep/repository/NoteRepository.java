@@ -32,15 +32,15 @@ public class NoteRepository {
 
     public List<Note> findAll(){
         List<Note> notes = new ArrayList<>();
-
+        
         String sql = "SELECT * FROM notes";
-
-        try (
+        
+         try (
             Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery()
         ) {
-            while (rs.next()){
+            while (rs.next()) {
                 Note note = new Note();
 
                 note.setId(rs.getInt("id"));
@@ -55,6 +55,34 @@ public class NoteRepository {
 
         return notes;
     }
-}
+        
 
+    public List<Note> searchByTitle(String keyword){
+        List<Note> notes = new ArrayList<>();
 
+        String sql = "SELECT * FROM notes WHERE title LIKE ?";
+
+        try (
+            Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+        ) {
+            pstmt.setString(1, "%" + keyword + "%");
+            
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Note note = new Note();
+
+                note.setId(rs.getInt("id"));
+                note.setTitle(rs.getString("title"));
+                note.setContent(rs.getString("content"));
+                notes.add(note);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return notes;
+    }
+} 
