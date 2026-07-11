@@ -85,4 +85,33 @@ public class NoteRepository {
 
         return notes;
     }
-} 
+
+    public void update(Note note){
+        String sql ="UPDATE notes SET title =?, content = ? WHERE id = ?";
+        
+        try (
+            Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+        ) {
+            pstmt.setString(1, note.getTitle());
+            pstmt.setString(2, note.getContent());
+            pstmt.setInt(3, note.getId());
+            
+            int rows = pstmt.executeUpdate();
+
+            if (rows > 0){
+                System.out.println("Note updated successfully.");
+            } else {
+                System.out.println("Note not found.");
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+        
+    
+
+       

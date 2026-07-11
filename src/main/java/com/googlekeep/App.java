@@ -33,7 +33,8 @@ public class App {
         System.out.println("1. Add Note");
         System.out.println("2. View Notes");
         System.out.println("3. Search Note");
-        System.out.println("4. Exit");
+        System.out.println("4. Edit Note");
+        System.out.println("5. Exit");
         System.out.print("Choose: ");
 
         int choice = input.nextInt();
@@ -82,8 +83,23 @@ public class App {
                     }
                 }
                 break;
-            
+
             case 4:
+                System.out.print("Enter note ID:");
+                int id = input.nextInt();
+                input.nextLine();
+                
+                System.out.print("New title: ");
+                String newTitle = input.nextLine();
+
+                System.out.print("New content: ");
+                String newContent = input.nextLine();
+
+                service.updateNote(id, newTitle, newContent);
+                break;
+
+            
+            case 5:
                 System.out.println("Goodbye!");
                 input.close();
                 return;
