@@ -1,5 +1,7 @@
 package com.googlekeep.service;
 
+import java.util.List;
+
 import com.googlekeep.model.Note;
 import com.googlekeep.repository.NoteRepository;
 
@@ -11,4 +13,8 @@ public class NoteService {
         Note note = new Note(title, content);
         repository.save(note);
     }
+    public List<Note> getAllNotes(){
+        return repository.findAll();
+    }
 }
+

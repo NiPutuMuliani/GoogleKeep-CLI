@@ -2,7 +2,10 @@ package com.googlekeep.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.googlekeep.database.DatabaseConnection;
 import com.googlekeep.model.Note;
@@ -26,5 +29,32 @@ public class NoteRepository {
             e.printStackTrace();
         }
     }
+
+    public List<Note> findAll(){
+        List<Note> notes = new ArrayList<>();
+
+        String sql = "SELECT * FROM notes";
+
+        try (
+            Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery()
+        ) {
+            while (rs.next()){
+                Note note = new Note();
+
+                note.setId(rs.getInt("id"));
+                note.setTitle(rs.getString("title"));
+                note.setContent(rs.getString("content"));
+
+                notes.add(note);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return notes;
+    }
 }
+
 
