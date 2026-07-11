@@ -21,7 +21,9 @@ public class NoteService {
         repository.update(note);
     }
 
-
+    public void deleteNote(int id){
+        repository.delete(id);
+    }
 
     public List<Note> getAllNotes(){
         return repository.findAll();

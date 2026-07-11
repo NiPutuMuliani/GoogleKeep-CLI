@@ -107,11 +107,30 @@ public class NoteRepository {
             
         } catch (SQLException e) {
             e.printStackTrace();
+
+        }
+
+    }
+
+        public void delete(int id){
+            String sql = "DELETE FROM notes WHERE id =?";
+
+            try (
+                Connection conn = DatabaseConnection.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+            ){
+                pstmt.setInt(1, id);
+
+                int rows = pstmt.executeUpdate();
+
+                if(rows > 0){
+                    System.out.println("Note deleted successfully.");
+                } else {
+                    System.out.println("Note not found.");
+                }
+                
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
-}
-
-        
-    
-
-       
