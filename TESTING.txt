@@ -1,0 +1,42 @@
+# Testing Documentation - Google Keep CLI
+
+## Framework yang Digunakan
+- JUnit 5
+- Mockito
+
+## Unit Test yang Dibuat
+| No | Method yang Diuji | Deskripsi | Hasil |
+|----|-------------------|------------|--------|
+| 1 | addNote() | Menambahkan catatan baru | PASS |
+| 2 | getAllNotes() | Menampilkan semua catatan | PASS |
+| 3 | searchNotes() | Mencari catatan berdasarkan judul | PASS |
+| 4 | updateNote() | Mengubah data catatan | PASS |
+| 5 | deleteNote() | Menghapus catatan | PASS |
+
+## Mocking
+Mocking dilakukan menggunakan Mockito pada objek:
+```java
+NoteRepository repository = mock(NoteRepository.class);
+```
+
+Verifikasi method menggunakan:
+```java
+verify(repository).save(any());
+verify(repository).findAll();
+verify(repository).searchByTitle("Java");
+verify(repository).update(any());
+verify(repository).delete(1);
+```
+
+## Cara Menjalankan Testing
+```bash
+mvn test
+```
+
+## Hasil Testing
+```text
+Tests run: 5
+Failures: 0
+Errors: 0
+BUILD SUCCESS
+```
