@@ -7,7 +7,15 @@ import com.googlekeep.repository.NoteRepository;
 
 public class NoteService {
 
-    private final NoteRepository repository = new NoteRepository();
+    private final NoteRepository repository;
+
+    public NoteService(){
+        this.repository = new NoteRepository();
+    }
+
+    public NoteService(NoteRepository repository){
+        this.repository = repository;
+    }
 
     public void addNote(String title, String content){
         Note note = new Note(title, content);
